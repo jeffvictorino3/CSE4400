@@ -136,7 +136,8 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 
-		// if player is not grounded, then player shouldn't be able to crouch
+		// if player is midair, then player shouldn't be able to crouch
+		// there's also a bug where you're midair without pressing the jump key and pressing the jump key will play the jump animation
 	}
 
 

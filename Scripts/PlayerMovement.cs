@@ -57,4 +57,15 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
+
+    // Upon collision with Player, this GameObject will destroy itself
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            animator.SetBool("IsHurt", true);
+            Destroy(gameObject, 0.15f);
+            //Time.timeScale = 0;
+        }
+    }
 }
